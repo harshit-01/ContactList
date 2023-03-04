@@ -51,6 +51,9 @@ export default function Login(){
                     <label htmlFor="password">Password</label><br/>
                     <input id="password" name="password" type="password" placeholder="Enter password"></input>
                     <button type="submit" className={styles.loginBtn} onClick={handleClick}>Login</button>
+                    <br/>
+                    <br/>
+                    <span>Already have an account? <span className={styles.signupText} onClick={()=>router.push('/Signup')}>Signup here.</span></span>
                 </form>
             </div>
         </div>

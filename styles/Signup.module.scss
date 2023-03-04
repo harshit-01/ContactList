@@ -68,7 +68,7 @@
             button[type="submit"],
             input[type="submit"] {
             background: #fff;
-            color: rgb(16, 64, 195);
+            color: rgb(41, 118, 180);
             border: none;
             outline:2px solid rgb(179, 182, 184);
             margin-top: 40px;
@@ -80,8 +80,8 @@
             
             button[type="submit"]:hover,
             input[type="submit"]:hover {
-                background: rgb(16, 64, 195);
-                border:2px solid rgb(16, 64, 195);
+                background: rgb(41, 118, 180);
+                border:2px solid rgb(41, 118, 180);
                 color:floralwhite;
                 font-weight: 700;
                 outline:none;
@@ -105,6 +105,14 @@
             }
             .signupBtn{
                 border-radius:5px;
+                cursor: pointer;
+            }
+            .loginText{
+                color:rgb(12, 132, 187);
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-left:0;
+                margin-top: 15px;
                 cursor: pointer;
             }
     }

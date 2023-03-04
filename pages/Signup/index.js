@@ -2,8 +2,10 @@ import styles from "../../styles/Signup.module.scss";
 import Image from 'next/image'
 import signupImage from "../../public/signup.jpg";
 import axios from 'axios'
+import {useRouter} from 'next/router';
 
 export default function Signup(){
+    const router  = useRouter();
     const handleClick = async(e)=>{
         e.preventDefault();
         var formEl = document.forms.signupForm;
@@ -19,6 +21,9 @@ export default function Signup(){
                     username: username,
                     password:password,
                 }).then((response) => {
+                    if(response.data.user){
+                        router.push('/Login')
+                    }
                     console.log(response.data.user);
                 })
             } 
@@ -44,6 +49,9 @@ export default function Signup(){
                     <label htmlFor="password">Password</label><br/>
                     <input id="password" name="password" type="password" placeholder="Enter password"></input>
                     <button type="submit" className={styles.signupBtn} onClick={handleClick}>Signup</button>
+                    <br/>
+                    <br/>
+                    <span>Already have an account? <span className={styles.loginText} onClick={()=>router.push('/Login')}>Login here.</span></span>
                 </form>
             </div>
         </div>
