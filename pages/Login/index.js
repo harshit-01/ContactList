@@ -1,9 +1,11 @@
-import styles from "../../styles/Signup.module.scss";
-import Image from 'next/image'
-import signupImage from "../../public/signup.jpg";
+import styles from "../../styles/Login.module.scss";
+import { setCookie,getCookie,hasCookie} from 'cookies-next';
 import axios from 'axios'
+import {useRouter} from 'next/router';
 
-export default function Signup(){
+
+export default function Login(){
+    const router  = useRouter();
     const handleClick = async(e)=>{
         e.preventDefault();
         var formEl = document.forms.signupForm;
@@ -15,11 +17,18 @@ export default function Signup(){
         }
         else{
             try {
-                await axios.post('/api/Signup', {
+                await axios.post('/api/Login', {
                     username: username,
-                    password:password,
+                    password: password,
                 }).then((response) => {
-                    console.log(response.data.user);
+                    if (typeof window !== "undefined" && response.data.token && response.status == 201) {
+                        setCookie('token', response.data.token, {maxAge: 31556926}); 
+                        router.push('/ContactList');
+                    }
+                    // console.log(response);
+                }).catch((err) => {
+                    alert("Incorrect credentials provided")
+                    console.log("Incorrect credentials provided")
                 })
             } 
             catch (error) {
@@ -31,19 +40,17 @@ export default function Signup(){
     return (
         <div className={styles.container}>
             <div className={styles.col1}>
-                <div className={styles.imgContainer}>
-                    <Image src = {signupImage} width= "400" height="250" className={styles.signupImg}>
-                    </Image>
-                </div>
+                <p>Welcome Back!</p>
             </div>
             <div className={styles.col2}>
-                <p className={styles.signupText}>Signup</p>
+                <p className={styles.loginText}>Login</p>
+                <p>Please fill in the details to login.</p>
                 <form action="" method="post"  id="signupForm">
                     <label htmlFor="username">Username</label><br/>
                     <input id="username" name="username" type="text" placeholder="Enter username"></input>
                     <label htmlFor="password">Password</label><br/>
                     <input id="password" name="password" type="password" placeholder="Enter password"></input>
-                    <button type="submit" className={styles.signupBtn} onClick={handleClick}>Signup</button>
+                    <button type="submit" className={styles.loginBtn} onClick={handleClick}>Login</button>
                 </form>
             </div>
         </div>
