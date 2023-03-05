@@ -37,7 +37,7 @@ export default async function handler(req, res) {
                       expiresIn: 31556926, // 1 year in seconds
                     }
                   );
-                  return res.status(201).json({"message":"Logged in successfully.", token:'Bearer '+ token});
+                  return res.status(201).json({"message":"Logged in successfully.", token:'Bearer '+ token,username: user.username});
             }
             console.log(req.body)
         }

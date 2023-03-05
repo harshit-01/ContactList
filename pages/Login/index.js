@@ -23,6 +23,7 @@ export default function Login(){
                 }).then((response) => {
                     if (typeof window !== "undefined" && response.data.token && response.status == 201) {
                         setCookie('token', response.data.token, {maxAge: 31556926}); 
+                        setCookie('username', response.data.username, {maxAge: 31556926})
                         router.push('/ContactList');
                     }
                     // console.log(response);
@@ -44,7 +45,7 @@ export default function Login(){
             </div>
             <div className={styles.col2}>
                 <p className={styles.loginText}>Login</p>
-                <p>Please fill in the details to login.</p>
+                <p> Please fill in the details to login.</p>
                 <form action="" method="post"  id="signupForm">
                     <label htmlFor="username">Username</label><br/>
                     <input id="username" name="username" type="text" placeholder="Enter username"></input>

@@ -11,6 +11,11 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    contactList:{type : [{
+        username:{type:String},
+        workType:{type:String},
+        phoneNumber:{type: String,max:10} 
+    }], default : [] }
 },
     { timestamps:true }
 );

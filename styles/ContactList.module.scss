@@ -1,0 +1,132 @@
+.contactListContainer{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    margin: 10px;
+    flex-wrap: wrap;
+    width:100%;
+    .userInfo{
+        text-align:center;
+        font-weight: bold;
+        width:100%;
+        .myCl{
+            font-size:2em;
+            margin:10px;
+            color:rgb(41, 118, 180);
+        }
+        .username{
+            font-size:1.4em;
+            margin:5px;
+        }
+    }
+    .contactListBtn{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        @media (max-width: 768px) {
+            flex-wrap: wrap;
+        }
+        > div{
+            width:10%;
+            background-color: rgb(73, 149, 203);
+            border-radius:5px;
+            margin: 5px;
+            text-align: center;
+            height:50px;
+            padding-top: 14px;
+            font-weight: 700;
+            color: floralwhite;
+            cursor: pointer;
+            @media (max-width: 550px) {
+                width:40%;
+            }
+        }
+    }
+    .table{
+        margin-top:15px;
+        width:70%;
+    }
+    .form{
+        width:100%;
+        display:flex;
+        justify-content: center;
+        form{
+            > p{
+                font-weight: 700;
+                font-size: 1.5em;
+                color:black;
+                text-align: center;
+            }
+            border: 2px solid grey;
+            padding: 15px;
+            border-radius:5px;
+            margin:5px;
+            width:50%;
+            // flex-direction: column;
+            // flex-wrap: wrap;
+            align-items: center;
+            input {
+                display: block;
+                box-sizing: border-box;
+                width:100%;
+                border-radius: 4px;
+                border: 1px solid white;
+                background-color:rgba(230, 225, 225, 0.621);
+                padding: 15px 15px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                }
+                
+                label {
+                line-height: 2;
+                text-align: left;
+                display: block;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                color: rgba(19, 64, 29, 0.862);
+                font-size: 16px;
+                font-weight: 800;
+                }
+                
+                button[type="submit"],
+                input[type="submit"] {
+                background: #fff;
+                color: rgba(19, 64, 29, 0.862);
+                border: none;
+                outline:2px solid rgb(179, 182, 184);
+                margin-top: 40px;
+                padding: 20px;
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                }
+                
+                button[type="submit"]:hover,
+                input[type="submit"]:hover {
+                    background: rgba(19, 64, 29, 0.862);
+                    border:2px solid rgba(19, 64, 29, 0.862);
+                    color:floralwhite;
+                    font-weight: 700;
+                    outline:none;
+                }
+                
+                button[type="submit"]:active,
+                input[type="button"]:active,
+                input[type="submit"]:active {
+                transition: 0.3s all;
+                transform: translateY(3px);
+                border: 1px solid transparent;
+                opacity: 0.8;
+                }
+                
+                input:disabled {
+                opacity: 0.4;
+                }
+                
+                input[type="button"]:hover {
+                transition: 0.3s all;
+                }
+        }
+    }
+
+}
