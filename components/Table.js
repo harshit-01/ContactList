@@ -139,8 +139,8 @@ export default function PaginationTable({userList}) {
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
-          ).map((row) => (
-            <TableRow key={row.name}>
+          ).map((row,ind) => (
+            <TableRow key={row.name + ind}>
               <TableCell style={{ width: 100 }} component="th" scope="row">
                 {row.name}
               </TableCell>
